@@ -1,0 +1,166 @@
+{
+	"fish": [{
+		"type": "fish",
+		"name": "Ahven",
+		"additionalAttributes": {
+			"weight": {
+				"range": {
+					"max": 3,
+					"steps": 50,
+					"min": 0
+				},
+				"default": 300
+			},
+			"gear": {
+				"default": "Virveli"
+			}
+		}
+	}, {
+		"type": "fish",
+		"name": "Hauki",
+		"additionalAttributes": {
+			"weight": {
+				"range": {
+					"max": 15,
+					"steps": 50,
+					"min": 0
+				},
+				"default": 1200
+			},
+			"gear": {
+				"default": "Virveli"
+			}
+		}
+	}, {
+		"type": "fish",
+		"name": "Kuha",
+		"additionalAttributes": {
+			"weight": {
+				"range": {
+					"max": 12,
+					"steps": 50,
+					"min": 0
+				},
+				"default": 800
+			},
+			"gear": {
+				"default": "Verkko"
+			}
+		}
+	}, {
+		"type": "fish",
+		"name": "Lahna",
+		"additionalAttributes": {
+			"weight": {
+				"range": {
+					"max": 8,
+					"steps": 50,
+					"min": 0
+				},
+				"default": 700
+			},
+			"gear": {
+				"default": "Verkko"
+			}
+		}
+	}, {
+		"type": "fish",
+		"name": "Lohi",
+		"additionalAttributes": {
+			"weight": {
+				"range": {
+					"max": 10,
+					"steps": 50,
+					"min": 0
+				},
+				"default": 1500
+			},
+			"gear": {
+				"default": "Verkko"
+			}
+		}
+	}, {
+		"type" : "fish",
+		"name" : "Made",
+		"additionalAttributes" : {
+			"weight" : {
+				"range" : {
+					"max" : 10,
+					"steps" : 50,
+					"min" : 0
+				},
+				"default" : 900
+			}
+		}
+	}, {
+		"type": "fish",
+		"name": "Säyne",
+		"additionalAttributes": {
+			"weight": {
+				"range": {
+					"max": 6,
+					"steps": 50,
+					"min": 0
+				},
+				"default": 700
+			},
+			"gear": {
+				"default": "Verkko"
+			}
+		}
+	}, {
+		"type": "fish",
+		"name": "Taimen",
+		"additionalAttributes": {
+			"weight": {
+				"range": {
+					"max": 10,
+					"steps": 50,
+					"min": 0
+				},
+				"default": 1500
+			},
+			"gear": {
+				"default": "Verkko"
+			}
+		}
+	}],
+	"fisher": [{
+		"type": "fisher",
+		"name": "Antti",
+		"additionalAttributes": []
+	}, {
+		"type": "fisher",
+		"name": "Ilkka",
+		"additionalAttributes": []
+	}, {
+		"type" : "fisher",
+		"name" : "Jaana",
+		"additionalAttributes" : []
+	}, {
+		"type" : "fisher",
+		"name" : "Ville",
+		"additionalAttributes" : []
+	}, {
+		"type" : "fisher",
+		"name" : "Erja",
+		"additionalAttributes" : []
+	}],
+	"gear": [{
+		"type" : "gear",
+		"name" : "Onki",
+		"additionalAttributes" : []
+	}, {
+		"type" : "gear",
+		"name" : "Katiska",
+		"additionalAttributes" : []
+	}, {
+		"type": "gear",
+		"name": "Verkko",
+		"additionalAttributes": []
+	}, {
+		"type": "gear",
+		"name": "Virveli",
+		"additionalAttributes": []
+	}]
+}

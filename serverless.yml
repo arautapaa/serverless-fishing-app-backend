@@ -1,0 +1,59 @@
+service: draught-service
+version: 0.1
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: eu-central-1
+  memorySize: 1024
+  environment:
+    TABLE_NAME_SELECTION: DraughtSelection
+    TABLE_NAME_DRAUGHTS: Draught
+    TABLE_NAME_PLACES: DraughtPlace
+    TABLE_NAME_USER: DraughtUser
+    MAPQUEST_API_KEY: guV130UjWto7EWHS4hrtfH6lWPQMcHg4
+    MAPQUEST_API_URL: http://open.mapquestapi.com/geocoding/v1/reverse
+    FMI_API_URL: http://data.fmi.fi/fmi-apikey/{apikey}/wfs
+    FMI_API_KEY: e60d6126-3819-41ee-91e5-08cc4bb12cc2
+    COGNITO_IDENTITY_POOL_ID: eu-central-1:d12da3ad-b046-4694-890b-16852ac4d39e
+    APP_AWS_REGION: eu-central-1
+    AWS_APP_DOMAIN: http://test-draught-application.s3-website.eu-central-1.amazonaws.com
+    EMAIL_SENDER: antti.rautapaa@gmail.com
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 
+        - "arn:aws:dynamodb:eu-central-1:679625349984:table/*"
+  
+  stackPolicy: # Optional CF stack policy. The example below allows updates to all resources except deleting/replacing EC2 instances (use with caution!)
+    - Effect: Allow
+      Principal: "*"
+      Action: "Update:*"
+      Resource: "*"
+    - Effect: Deny
+      Principal: "*"
+      Action:
+        - Update:Replace
+        - Update:Delete
+      Resource: "*"
+      Condition:
+        StringEquals:
+          ResourceType:
+            - AWS::EC2::Instance
+  
+functions:
+  app:
+    handler: src/server.handler
+    events:
+      - http: ANY /
+        cors: true
+        authorizer: AWS_IAM
+      - http: 'ANY {proxy+}'
+        cors: true
+        authorizer: AWS_IAM
