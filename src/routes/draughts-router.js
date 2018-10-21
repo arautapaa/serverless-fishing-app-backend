@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const actions = require('../logic/draught-actions.js');
+const analyzer = require('../logic/draught-analysis/analyze');
 
 router.get('/', function(req, res) {
 	const userId = req.selectedUserGroup;
@@ -37,7 +38,17 @@ router.get('/:id', function(req, res) {
 			res.status(400).send(error);
 		}
 	});
-})
+});
+
+router.get('/analysis', function(req, res) {
+	const userId = req.selectedUserGroup;
+
+	analyzer.analyze(userId).then((response) => {
+		res.send(response);
+	}).catch((error) => {
+		res.status(400).send(error);
+	});
+});
 
 router.delete('/:id', function(req, res) {
 	const groupId = req.selectedUserGroup;
