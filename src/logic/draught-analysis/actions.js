@@ -125,7 +125,7 @@ class DataFilters {
 			const date = new Date(filteredValue);
 
 			resolve({
-				key : date.getHours(),
+				key : date.getHours() + 3,
 				value : draught
 			})
 		})
